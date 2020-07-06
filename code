@@ -1,0 +1,11 @@
+from sklearn import metrics
+from sklearn.metrics import roc_curve
+
+for name, model in models:
+    #training model
+    model.fit(X_train, y_train)
+    #test and predict by model
+    y_pred = model.predict(X_test)
+    fpr, tpr, thresholds = roc_curve(y_test,y_pred)
+    print("The AUC Score is %s"%(metrics.auc(fpr, tpr)),"%")
+ 
